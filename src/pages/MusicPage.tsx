@@ -2,8 +2,8 @@ import './Pages.css'
 
 const tracks = [
   {
-    title: "Ethereal Dreams",
-    description: "An ambient journey through consciousness",
+    title: "",
+    description: "",
     soundcloudUrl: "https://soundcloud.com/graciellyelly",
   }
 ]
@@ -36,29 +36,7 @@ const MusicPage = () => {
         <h1 className="page-title">MUSIC</h1>
       </div>
 
-      {/* First Section: Tracks */}
-      <div className="music-section">
-        <div className="section-header">
-          <h2>remixes, meet my beat series, and original tracks</h2>
-        </div>
-        <div className="tracks-grid">
-          {tracks.map((track, idx) => (
-            <div key={idx} className="track-card">
-              <div className="track-info">
-                <h3>{track.title}</h3>
-                <p>{track.description}</p>
-              </div>
-              <div style={{ left: 0, width: '100%', height: 450, position: 'relative' }}>
-                <iframe
-                  src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(track.soundcloudUrl)}&show_artwork=true`}
-                  style={{ top: 0, left: 0, width: '100%', height: '100%', position: 'absolute', border: 0 }}
-                  allow="autoplay"
-                ></iframe>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      
 
       {/* Second Section: Albums & EPs */}
       <div className="music-section">
@@ -78,6 +56,29 @@ const MusicPage = () => {
               <div className="track-info">
                 <h3>{album.title}</h3>
                 <p>{album.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* First Section: Tracks */}
+      <div className="music-section">
+        <div className="section-header">
+          <h2>remixes, meet my beat series, and original tracks</h2>
+        </div>
+        <div className="tracks-grid">
+          {tracks.map((track, idx) => (
+            <div key={idx} className="track-card">
+              <div className="track-info">
+                <h3>{track.title}</h3>
+                <p>{track.description}</p>
+              </div>
+              <div style={{ left: 0, width: '100%', height: 450, position: 'relative' }}>
+                <iframe
+                  src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(track.soundcloudUrl)}&show_artwork=true`}
+                  style={{ top: 0, left: 0, width: '100%', height: '100%', position: 'absolute', border: 0 }}
+                  allow="autoplay"
+                ></iframe>
               </div>
             </div>
           ))}
