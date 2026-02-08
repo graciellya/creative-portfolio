@@ -1,3 +1,4 @@
+import PixelBlast from "../components/PixelBlast";
 import './Pages.css'
 
 const ServicesPage = () => {
@@ -26,7 +27,21 @@ const ServicesPage = () => {
 
   return (
     <div className="page-container">
-      <div className="page-content">
+      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <PixelBlast
+          variant="square"
+          pixelSize={4}
+          color="#5c0700"
+          patternScale={6.75}
+          patternDensity={2}
+          pixelSizeJitter={0}
+          enableRipples={false}
+          speed={3}
+          edgeFade={0}
+          transparent
+        />
+      </div>
+      <div style={{ position: "relative", zIndex: 1 }} className="page-content">
         <h1>Our Services</h1>
         <p className="services-intro">
           We offer a comprehensive range of digital services to help your business grow.
@@ -41,8 +56,7 @@ const ServicesPage = () => {
             </div>
           ))}
         </div>
-      </div>
-    </div>
+      </div>      </div>    </div>
   )
 }
 

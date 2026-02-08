@@ -1,3 +1,4 @@
+import PixelBlast from "../components/PixelBlast";
 import "./Pages.css";
 
 const PerformancesPage = () => {
@@ -36,37 +37,49 @@ const PerformancesPage = () => {
 
   return (
     <div className="page-container performances-page">
-      <div className="page-header">
-        <h1 className="page-title"> PERFORMANCES</h1>
+      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <PixelBlast
+          variant="square"
+          pixelSize={4}
+          color="#5c0700"
+          patternScale={6.75}
+          patternDensity={2}
+          pixelSizeJitter={0}
+          enableRipples={false}
+          speed={3}
+          edgeFade={0}
+          transparent
+        />
       </div>
-
-      <div className="performance-section">
-        <div className="videos-grid">
-          {liveConcerts.map((video, videoIndex) => (
-            <div key={videoIndex} className="video-card">
-              <div className="video-container">
-                <iframe
-                  width="100%"
-                  height="315"
-                  src={`https://www.youtube.com/embed/${getVideoId(
-                    video.ytLink
-                  )}`}
-                  title={video.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="video-info">
-                <h3>{video.title}</h3>
-                <p className="video-description">{video.description}</p>
-                <div className="video-meta">
-                  <span className="video-duration">⏱️ {video.duration}</span>
-                  <span className="video-venue">📍 {video.venue}</span>
+      <div style={{ position: "relative", zIndex: 1, paddingTop: "25vh" }}>
+        <div className="performance-section">
+          <div className="videos-grid">
+            {liveConcerts.map((video, videoIndex) => (
+              <div key={videoIndex} className="video-card">
+                <div className="video-container">
+                  <iframe
+                    width="100%"
+                    height="315"
+                    src={`https://www.youtube.com/embed/${getVideoId(
+                      video.ytLink,
+                    )}`}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <div className="video-info">
+                  <h3>{video.title}</h3>
+                  <p className="video-description">{video.description}</p>
+                  <div className="video-meta">
+                    <span className="video-duration">{video.duration}</span>
+                    <span className="video-venue">{video.venue}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

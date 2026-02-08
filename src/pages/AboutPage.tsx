@@ -1,9 +1,24 @@
+import PixelBlast from "../components/PixelBlast";
 import './Pages.css'
 
 const AboutPage = () => {
   return (
     <div className="page-container">
-      <div className="page-content">
+      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <PixelBlast
+          variant="square"
+          pixelSize={4}
+          color="#5c0700"
+          patternScale={6.75}
+          patternDensity={2}
+          pixelSizeJitter={0}
+          enableRipples={false}
+          speed={3}
+          edgeFade={0}
+          transparent
+        />
+      </div>
+      <div style={{ position: "relative", zIndex: 1 }} className="page-content">
         <h1>About Us</h1>
         <div className="about-content">
           <div className="about-text">
@@ -29,6 +44,7 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   )

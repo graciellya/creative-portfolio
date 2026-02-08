@@ -1,3 +1,4 @@
+import PixelBlast from "../components/PixelBlast";
 import "./Pages.css";
 
 const PhotographyPage = () => {
@@ -222,36 +223,47 @@ const PhotographyPage = () => {
 
   return (
     <div className="page-container photography-page">
-      <div className="page-header">
-        <h1 className="page-title">PHOTOGRAPHY</h1>
-        <p className="page-subtitle"></p>
+      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <PixelBlast
+          variant="square"
+          pixelSize={4}
+          color="#5c0700"
+          patternScale={6.75}
+          patternDensity={2}
+          pixelSizeJitter={0}
+          enableRipples={false}
+          speed={3}
+          edgeFade={0}
+          transparent
+        />
       </div>
+      <div style={{ position: "relative", zIndex: 1, paddingTop: "6rem" }}>
+        {photoGalleries.map((gallery, galleryIndex) => (
+          <div key={galleryIndex} className="photo-section">
+            <div className="section-header">
+              <h2 data-text={gallery.title}>{gallery.title}</h2>
+              <p>{gallery.description}</p>
+            </div>
 
-      {photoGalleries.map((gallery, galleryIndex) => (
-        <div key={galleryIndex} className="photo-section">
-          <div className="section-header">
-            <h2 data-text={gallery.title}>{gallery.title}</h2>
-            <p>{gallery.description}</p>
-          </div>
-
-          {/* Add photo-grid class back as a wrapper */}
-          <div className="masonry-grid">
-            {gallery.photos.map((photo, photoIndex) => (
-              <div key={photoIndex} className="masonry-item">
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  className="photo-image"
-                  loading="lazy"
-                />
-                <div className="masonry-overlay">
-                  <h4>{photo.title}</h4>
+            {/* Add photo-grid class back as a wrapper */}
+            <div className="masonry-grid">
+              {gallery.photos.map((photo, photoIndex) => (
+                <div key={photoIndex} className="masonry-item">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="photo-image"
+                    loading="lazy"
+                  />
+                  <div className="masonry-overlay">
+                    <h4>{photo.title}</h4>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

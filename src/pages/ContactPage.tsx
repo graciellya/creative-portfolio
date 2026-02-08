@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PixelBlast from "../components/PixelBlast";
 import './Pages.css'
 
 const ContactPage = () => {
@@ -25,7 +26,21 @@ const ContactPage = () => {
 
   return (
     <div className="page-container">
-      <div className="page-content">
+      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <PixelBlast
+          variant="square"
+          pixelSize={4}
+          color="#5c0700"
+          patternScale={6.75}
+          patternDensity={2}
+          pixelSizeJitter={0}
+          enableRipples={false}
+          speed={3}
+          edgeFade={0}
+          transparent
+        />
+      </div>
+      <div style={{ position: "relative", zIndex: 1 }} className="page-content">
         <h1>Get In Touch</h1>
         <div className="contact-content">
           <div className="contact-info">
@@ -79,6 +94,7 @@ const ContactPage = () => {
             </button>
           </form>
         </div>
+      </div>
       </div>
     </div>
   )

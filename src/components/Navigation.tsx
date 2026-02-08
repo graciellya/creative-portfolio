@@ -1,34 +1,49 @@
-import './Navigation.css'
+import { useState } from "react";
+import "./Navigation.css";
 
 interface NavigationProps {
-  currentPage: string
-  onPageChange: (page: string) => void
+  currentPage: string;
+  onPageChange: (page: string) => void;
 }
 
 const Navigation = ({ currentPage, onPageChange }: NavigationProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const pages = [
-    { id: 'home', label: 'Home', icon: '⾕' },
-    { id: 'music', label: 'Music', icon: '⋆♪₊' },
-    { id: 'photography', label: 'Photography', icon: '⊹𖠂˖' },
-    { id: 'performances', label: 'Performances', icon: '₊𓀤⊹' }
-  ]
+    { id: "home", label: "Home" },
+    { id: "music", label: "Music" },
+    { id: "photography", label: "Photography" },
+    { id: "performances", label: "Performances" },
+  ];
+
+  const isHome = currentPage === "home";
+  const isCollapsed = !isHome && !isExpanded;
+
+  const handleNavClick = (pageId: string) => {
+    if (pageId === currentPage && !isHome) {
+      setIsExpanded((prev) => !prev);
+      return;
+    }
+    onPageChange(pageId);
+    setIsExpanded(false);
+  };
 
   return (
     <nav className="floating-nav">
-      <div className="nav-container">
+      <div
+        className={`nav-container ${isCollapsed ? "collapsed" : "expanded"}`}
+      >
         {pages.map((page) => (
           <button
             key={page.id}
-            className={`nav-button ${currentPage === page.id ? 'active' : ''}`}
-            onClick={() => onPageChange(page.id)}
+            className={`nav-button ${currentPage === page.id ? "active" : ""}`}
+            onClick={() => handleNavClick(page.id)}
           >
-            <span className="nav-icon">{page.icon}</span>
             <span className="nav-label">{page.label}</span>
           </button>
         ))}
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

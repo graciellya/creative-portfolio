@@ -3,24 +3,14 @@
   min-height: 100vh;
   padding: 2rem;
   padding-bottom: 8rem; /* Space for floating nav */
-  background: rgb(8, 6, 6);
-  background-attachment: fixed;
+  background: #0b0b0b;
+  color: #e6e6e6;
   position: relative;
   overflow-x: hidden;
 }
 
 .page-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(218, 165, 32, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 60%, rgba(205, 133, 63, 0.05) 0%, transparent 50%);
-  pointer-events: none;
+  content: none;
 }
 
 .page-content {
@@ -41,16 +31,13 @@
 .page-title {
   font-size: 4rem;
   margin-bottom: 1rem;
-  background:#61040f;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #f2f2f2;
   font-weight: 700;
 }
 
 .page-subtitle {
   font-size: 1.4rem;
-  color: #432222;
+  color: rgba(255, 255, 255, 0.65);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -70,34 +57,82 @@
   position: relative;
 }
 
+.hero-section.hero-editorial {
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-wrap {
+  text-align: left;
+}
+
+.hero-text-wrap {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 468px;
+  padding-top: 6rem;
+}
+
+.hero-dropcap {
+  float: left;
+  font-size: 4.5rem;
+  font-weight: 300;
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 0.85;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  color: #f5f5f5;
+  letter-spacing: -0.02em;
+  shape-outside: margin-box;
+}
+
+.hero-text-wrap p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.hero-paragraph {
+  display: inline;
+  text-align: left;
+  hyphens: none;
+  word-spacing: 0.05em;
+}
+
+.hero-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  margin-left: 2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .hero-content {
   text-align: left;
   z-index: 2;
 }
 
 .hero-title {
-  font-size: 9rem;
-  font-weight: 800;
+  font-size: 5rem;
+  font-weight: 700;
   line-height: 1.1;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #800020, #61040f, #8B0000, #320302);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 6s ease-in-out infinite;
-}
-
-@keyframes gradient-shift {
-  0%, 100% { filter: hue-rotate(0deg); }
-  50% { filter: hue-rotate(30deg); }
+  margin-bottom: 1.2rem;
+  color: #f5f5f5;
 }
 
 .hero-subtitle {
-  font-size: 3rem;
-  color: rgba(157, 23, 23, 0.435);
-  margin-bottom: 2rem;
-  font-weight: 200;
-  margin-left: 16rem;
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  margin-left: 0;
 }
 
 .hero-description {
@@ -105,52 +140,54 @@
 }
 
 .hero-description p {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   line-height: 1.7;
-  color: rgba(82, 33, 33, 0.594);
-  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
 }
 
 .cta-buttons {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-left: 10rem;
+  margin-left: 0;
 }
 
-.cta-primary, .cta-secondary {
+.cta-primary,
+.cta-secondary {
   padding: 1rem 2.5rem;
-  border-radius: 50px;
-  font-size: 1.1rem;
+  border-radius: 6px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
   position: relative;
   overflow: hidden;
   border: none;
 }
 
 .cta-primary {
-  background: linear-gradient(135deg, #30224f, #CD853F);
-  color: white;
-  box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+  background: #f2f2f2;
+  color: #111;
+  box-shadow: none;
 }
 
 .cta-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(218, 165, 32, 0.6);
+  background: #ffffff;
 }
 
 .cta-secondary {
   background: transparent;
-  color: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(218, 165, 32, 0.6);
+  color: #f2f2f2;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .cta-secondary:hover {
-  background: rgba(218, 165, 32, 0.1);
-  border-color: #DAA520;
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 /* Hero Visual */
@@ -164,32 +201,32 @@
 
 .artist-photo-container {
   position: relative;
-  width: 900px;
-  height: 950px;
-  border-radius: 15px;
-  overflow: hidden;
-  background: black;
-  padding: 5px;
-  box-shadow: 0 20px 60px rgba(124, 4, 4, 0.4);
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  transition: none;
 }
 
 .artist-photo-container:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  transform: none;
+  box-shadow: none;
 }
 
 .artist-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 25px;
-  transition: all 0.4s ease;
-  filter: brightness(0.9) contrast(1.1) saturate(1.1);
+  border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  transition: none;
+  filter: none;
 }
 
 .artist-photo-container:hover .artist-photo {
-  filter: brightness(1) contrast(1.2) saturate(1.2);
+  filter: none;
 }
 
 .photo-overlay {
@@ -205,9 +242,9 @@
   );
   color: white;
   padding: 2rem;
-  border-radius: 0 0 25px 25px;
-  transform: translateY(100%);
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 0;
+  transform: translateY(0);
+  transition: none;
 }
 
 .artist-photo-container:hover .photo-overlay {
@@ -217,38 +254,19 @@
 .photo-overlay h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #DAA520;
+  color: #f0f0f0;
   font-weight: 600;
 }
 
 .photo-overlay p {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.4;
 }
 
 /* Decorative elements around photo */
 .artist-photo-container::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
-  background: black;
-  border-radius: 50px;
-  z-index: -1;
-  animation: rotate 20s linear infinite;
-  opacity: 0.3;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  content: none;
 }
 
 /* Featured Sections */
@@ -260,26 +278,20 @@
 }
 
 .section-preview {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 25px;
-  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
   text-align: center;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
   position: relative;
   overflow: hidden;
 }
 
 .section-preview::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.1), transparent);
-  transition: left 0.6s;
+  content: none;
 }
 
 .section-preview:hover::before {
@@ -287,9 +299,9 @@
 }
 
 .section-preview:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: none;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: none;
 }
 
 .preview-icon {
@@ -301,12 +313,12 @@
 .section-preview h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: black;
+  color: #f2f2f2;
   font-weight: 600;
 }
 
 .section-preview p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
   font-size: 1.1rem;
 }
@@ -324,7 +336,7 @@
 .about-text p {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 2rem;
 }
 
@@ -337,21 +349,21 @@
 .stat-item {
   text-align: center;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .stat-number {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #61dafb;
+  color: #f2f2f2;
   margin-bottom: 0.5rem;
 }
 
 .stat-label {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -364,18 +376,18 @@
 .placeholder-image {
   width: 300px;
   height: 300px;
-  background: linear-gradient(135deg, #646cff, #61dafb);
-  border-radius: 20px;
+  background: #1a1a1a;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 8rem;
-} 
+}
 
 /* Services Page */
 .services-intro {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;
@@ -390,19 +402,20 @@
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
   padding: 2.5rem;
-  transition: all 0.3s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
   text-align: center;
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  transform: none;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: none;
 }
 
 .service-icon {
@@ -413,29 +426,30 @@
 .service-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #fff;
+  color: #f2f2f2;
 }
 
 .service-card p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
   margin-bottom: 2rem;
 }
 
 .service-button {
-  background: linear-gradient(135deg, #646cff, #61dafb);
-  color: white;
+  background: #f2f2f2;
+  color: #111;
   border: none;
   padding: 0.75rem 2rem;
-  border-radius: 25px;
+  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .service-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(100, 108, 255, 0.4);
+  transform: none;
+  box-shadow: none;
+  background: #ffffff;
 }
 
 /* Contact Page */
@@ -450,7 +464,7 @@
 .contact-info h3 {
   font-size: 1.5rem;
   margin-bottom: 2rem;
-  color: #fff;
+  color: #f2f2f2;
 }
 
 .contact-item {
@@ -459,7 +473,7 @@
   gap: 1rem;
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .contact-icon {
@@ -467,10 +481,9 @@
 }
 
 .contact-form {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
   padding: 2.5rem;
 }
 
@@ -482,105 +495,105 @@
 .form-group textarea {
   width: 100%;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: #0f0f0f;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  color: #fff;
+  border-radius: 6px;
+  color: #f2f2f2;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: black;
-  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: #0f0f0f;
 }
 
 .submit-button {
   width: 100%;
-  background: black;
-  color: white;
+  background: #f2f2f2;
+  color: #111;
   border: none;
   padding: 1rem 2rem;
-  border-radius: 10px;
+  border-radius: 6px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .submit-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(100, 108, 255, 0.4);
+  transform: none;
+  box-shadow: none;
+  background: #ffffff;
 }
 
 /* ==================== MUSIC PAGE STYLES ==================== */
 
 .music-page {
-  background: rgb(8, 6, 6);
+  background: #0b0b0b;
 }
 
 .music-section {
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
   position: relative;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .section-header h2 {
   font-size: 2.5rem;
-  color:  #59323271;
+  color: #f2f2f2;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 .section-header p {
   font-size: 1.2rem;
-  color: #420303;
+  color: rgba(255, 255, 255, 0.7);
   max-width: 600px;
   margin: 0 auto;
 }
 
 .tracks-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+  justify-items: center;
 }
 
 .track-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px black;
-  border-radius: 20px;
-  padding: 2rem;
-  transition: all 0.4s ease;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   position: relative;
   overflow: hidden;
+  max-width: 250px;
+  text-align: center;
 }
 
 .track-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: black;
+  content: none;
 }
 
 .track-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transform: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .track-info {
@@ -589,49 +602,66 @@
 
 .track-info h3 {
   font-size: 1.5rem;
-  color: #ffffff31;
+  color: #f2f2f2;
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
 .track-info p {
-  color: #f6f1f182;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
 }
 
+.soundcloud-grid {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.soundcloud-card {
+  background: transparent;
+  border: none;
+  padding: 0;
+  width: 100%;
+}
+
 .soundcloud-embed {
-  border-radius: 12px;
+  border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .soundcloud-embed iframe {
-  border-radius: 12px;
+  border-radius: 6px;
 }
 
 .music-bio {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 25px;
-  padding: 3rem;
-  margin-top: 4rem;
-  text-align: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 3rem 0;
+  margin-top: 1.5rem;
+  text-align: left;
 }
 
 .music-bio h3 {
-  font-size: 2rem;
-  color: #59323271;
+  font-size: 1.1rem;
+  color: #f2f2f2;
   margin-bottom: 1.5rem;
-  font-weight: 600;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.75rem;
 }
 
 .music-bio p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.8;
-  color: #59323271;
-  max-width: 800px;
-  margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: none;
+  margin: 0 0 2rem 0;
+  white-space: nowrap;
 }
 
 .music-links {
@@ -643,57 +673,62 @@
 
 .music-link {
   padding: 1rem 2rem;
-  background: rgba(218, 165, 32, 0.2);
-  border: 1px solid rgba(218, 165, 32, 0.4);
-  border-radius: 25px;
-  color: black;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+  color: #f2f2f2;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .music-link:hover {
-  background: rgba(15, 13, 10, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(10, 10, 9, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  transform: none;
+  box-shadow: none;
 }
 
 /* ==================== PHOTOGRAPHY PAGE STYLES ==================== */
 
 .photography-page {
-    min-height: 100vh;
-    background: 
-        linear-gradient(135deg, #000000 0%, #0a0a0a 20%, #1a0a1a 40%, #2a0a0a 60%, #1a1a1a 80%, #000000 100%),
-        radial-gradient(circle at 30% 30%, rgba(255, 0, 100, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(0, 255, 200, 0.1) 0%, transparent 50%);
-    background-attachment: fixed;
-    position: relative;
-    overflow-x: hidden;
+  min-height: 100vh;
+  background: #0b0b0b;
+  position: relative;
+  overflow-x: hidden;
 }
 
 /* Masonry grid for photography page */
 .masonry-grid {
-  column-count: 2;
-  column-gap: 15px;
+  column-count: 3;
+  column-gap: 2.5rem;
   width: 100%;
-  max-width: 1500px;
+  max-width: 1200px;
   margin: 0 auto 4rem auto;
+  padding: 0 2rem;
 }
 
 .masonry-item {
   break-inside: avoid;
-  margin-bottom: 15px;
+  margin-bottom: 2.5rem;
   position: relative;
   overflow: hidden;
-  background: #000;
-  border-radius: 0; /* No border radius to avoid white edges */
+  background: transparent;
+  border-radius: 0;
+}
+
+.masonry-item img {
+  max-width: 85%;
+  display: block;
+  margin: 0 auto;
 }
 
 .masonry-image {
   display: block;
   width: 100%;
-  height: auto; /* Let height be determined by aspect ratio */
-  transition: transform 0.4s ease;
+  height: auto;
+  transition: none;
 }
 
 .masonry-overlay {
@@ -702,9 +737,9 @@
   left: 0;
   width: 100%;
   padding: 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 .masonry-item:hover .masonry-overlay {
@@ -712,11 +747,10 @@
 }
 
 .masonry-item:hover .masonry-image {
-  transform: scale(1.05);
+  transform: none;
 }
 
 .masonry-overlay h4 {
-  
   text-align: center;
 }
 
@@ -733,22 +767,10 @@
   }
 }
 
-
-
-
-
-
-
-
-
-
 /* ==================== PERFORMANCES PAGE STYLES ==================== */
 
 .performances-page {
- background: 
-        linear-gradient(135deg, #000000 0%, #0a0a0a 20%, #1a0a1a 40%, #2a0a0a 60%, #1a1a1a 80%, #000000 100%),
-        radial-gradient(circle at 30% 30%, rgba(255, 0, 100, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(0, 255, 200, 0.1) 0%, transparent 50%);
+  background: #0b0b0b;
 }
 
 .performance-section {
@@ -757,36 +779,30 @@
 
 .videos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
   margin-top: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .video-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   overflow: hidden;
-  transition: all 0.4s ease;
   position: relative;
 }
 
 .video-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(135deg, #1c0c23, #27182d);
-  z-index: 1;
+  content: none;
 }
 
 .video-card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transform: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .video-container {
@@ -794,7 +810,7 @@
   width: 100%;
   height: 0;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  border-radius: 15px 15px 0 0;
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -808,21 +824,21 @@
 }
 
 .video-info {
-  padding: 2rem;
+  padding: 1.5rem 0 0 0;
 }
 
 .video-info h3 {
-  font-size: 1.6rem;
-  color:  #827c7cb8;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: #f2f2f2;
+  margin-bottom: 0.75rem;
   font-weight: 600;
 }
 
 .video-description {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
 .video-meta {
@@ -833,24 +849,23 @@
 
 .video-duration,
 .video-venue {
-  color: rgba(255, 255, 255, 0.391);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.95rem;
   font-weight: 500;
 }
 
 /* Upcoming Shows */
 .upcoming-shows {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
   padding: 3rem;
   margin: 4rem 0;
 }
 
 .upcoming-shows h3 {
   font-size: 2rem;
-  color: #fdfdfd8a;
+  color: #f2f2f2;
   margin-bottom: 2rem;
   text-align: center;
   font-weight: 600;
@@ -869,26 +884,28 @@
   align-items: center;
   gap: 2rem;
   padding: 1.5rem;
-  background: rgba(155, 89, 182, 0.1);
-  border: 1px solid rgba(155, 89, 182, 0.3);
-  border-radius: 15px;
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .show-item:hover {
-  background: rgba(155, 89, 182, 0.2);
-  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.06);
+  transform: none;
 }
 
 .show-date {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+  background: #f2f2f2;
   padding: 1rem;
-  border-radius: 12px;
+  border-radius: 6px;
   min-width: 80px;
-  color: white;
+  color: #111;
 }
 
 .show-date .month {
@@ -904,23 +921,22 @@
 
 .show-details h4 {
   font-size: 1.4rem;
-  color: #9b59b6;
+  color: #f2f2f2;
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
 .show-details p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.3rem;
   font-size: 1rem;
 }
 
 /* Performance Bio */
 .performance-bio {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
   padding: 3rem;
   margin-top: 4rem;
   text-align: center;
@@ -928,7 +944,7 @@
 
 .performance-bio h3 {
   font-size: 2rem;
-  color: #fffeff;
+  color: #f2f2f2;
   margin-bottom: 1.5rem;
   font-weight: 600;
 }
@@ -936,22 +952,22 @@
 .performance-bio p {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.449);
+  color: rgba(255, 255, 255, 0.7);
   max-width: 800px;
   margin: 0 auto 2.5rem;
 }
 
 .booking-info {
-  background: rgba(155, 89, 182, 0.1);
-  border: 1px solid rgba(155, 89, 182, 0.3);
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
   padding: 2.5rem;
   margin-top: 2rem;
 }
 
 .booking-info h4 {
   font-size: 1.5rem;
-  color: #ffffff;
+  color: #f2f2f2;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -971,25 +987,26 @@
 
 .booking-info li {
   padding: 0.5rem 0;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 1rem;
 }
 
 .booking-cta {
-  background: linear-gradient(135deg, #9b59b6, #8e44ad);
-  color: white;
+  background: #f2f2f2;
+  color: #111;
   border: none;
   padding: 1rem 2.5rem;
-  border-radius: 30px;
+  border-radius: 6px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.4s ease;
+  transition: background-color 0.2s ease;
 }
 
 .booking-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(155, 89, 182, 0.4);
+  transform: none;
+  box-shadow: none;
+  background: #ffffff;
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
@@ -999,31 +1016,31 @@
   .page-title {
     font-size: 3rem;
   }
-  
+
   .hero-section {
     grid-template-columns: 1fr;
     gap: 3rem;
     text-align: center;
   }
-  
+
   .hero-visual {
     height: 700px;
   }
-  
+
   .hero-title {
     font-size: 3.5rem;
   }
-  
+
   .artist-photo-container {
     width: 600px;
     height: 600px;
   }
-  
+
   .tracks-grid,
   .videos-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .photo-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
@@ -1035,112 +1052,112 @@
     padding: 1rem;
     padding-bottom: 6rem;
   }
-  
+
   .hero-visual {
     height: 600px;
   }
-  
+
   .page-title {
     font-size: 2.5rem;
   }
-  
+
   .page-subtitle {
     font-size: 1.2rem;
   }
-  
+
   .hero-title {
     font-size: 2.8rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.3rem;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .cta-primary,
   .cta-secondary {
     width: 100%;
     max-width: 280px;
   }
-  
+
   .artist-photo-container {
     width: 500px;
     height: 500px;
   }
-  
+
   .featured-sections {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .section-preview {
     padding: 2rem 1.5rem;
   }
-  
+
   .tracks-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .track-card {
     padding: 1.5rem;
   }
-  
+
   .photo-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .photo-section .section-header h2 {
     font-size: 2.5rem;
   }
-  
+
   .photo-card {
     transform-style: initial;
   }
-  
+
   .photo-card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: none;
   }
-  
+
   .videos-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .video-card {
     margin: 0;
   }
-  
+
   .show-item {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
   }
-  
+
   .music-links {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .music-link {
     width: 100%;
     max-width: 250px;
     text-align: center;
   }
-  
+
   .photo-services {
     grid-template-columns: 1fr;
   }
-  
+
   .photography-bio {
     padding: 3rem 2rem;
   }
-  
+
   .photography-bio h3 {
     font-size: 2.2rem;
   }
@@ -1151,38 +1168,38 @@
   .hero-visual {
     height: 500px;
   }
-  
+
   .page-title {
     font-size: 2rem;
   }
-  
+
   .hero-title {
     font-size: 2.2rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.1rem;
   }
-  
+
   .hero-description p {
     font-size: 1rem;
   }
-  
+
   .artist-photo-container {
     width: 400px;
     height: 400px;
   }
-  
+
   .section-header h2,
   .photo-section .section-header h2 {
     font-size: 2rem;
   }
-  
+
   .track-info h3,
   .video-info h3 {
     font-size: 1.3rem;
   }
-  
+
   .music-bio,
   .photography-bio,
   .performance-bio,
@@ -1190,20 +1207,20 @@
   .booking-info {
     padding: 2rem 1.5rem;
   }
-  
+
   .photo-info h4 {
     font-size: 1.4rem;
   }
-  
+
   .view-full {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
   }
-  
+
   .photography-bio h3 {
     font-size: 1.8rem;
   }
-  
+
   .photography-bio p {
     font-size: 1.2rem;
   }
@@ -1213,179 +1230,12 @@
 
 @media (prefers-color-scheme: light) {
   .page-container {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
-    color: #333;
-  }
-  
-  .page-container::before {
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(218, 165, 32, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 40% 60%, rgba(205, 133, 63, 0.1) 0%, transparent 50%);
-  }
-  
-  .page-title {
-    background: linear-gradient(135deg, #B8860B, #CD853F, #D2691E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .page-subtitle,
-  .hero-subtitle,
-  .hero-description p {
-    color: rgba(0, 0, 0, 0.8);
-  }
-  
-  .section-preview,
-  .track-card,
-  .video-card,
-  .photo-card,
-  .music-bio,
-  .photography-bio,
-  .performance-bio,
-  .upcoming-shows {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(20px);
-  }
-  
-  .section-preview:hover,
-  .track-card:hover,
-  .video-card:hover {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-  }
-  
-  .section-preview h3,
-  .track-info h3,
-  .video-info h3,
-  .section-header h2,
-  .music-bio h3,
-  .photography-bio h3,
-  .performance-bio h3,
-  .upcoming-shows h3 {
-    color: #B8860B;
-  }
-  
-  .section-preview p,
-  .track-info p,
-  .video-description,
-  .section-header p,
-  .music-bio p,
-  .photography-bio p,
-  .performance-bio p {
-    color: rgba(0, 0, 0, 0.8);
-  }
-  
-  .element {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  
-  .element:hover {
-    background: rgba(218, 165, 32, 0.3);
-  }
-  
-  .artist-photo-container {
-    background: black;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  }
-  
-  .artist-photo-container:hover {
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
-  }
-  
-  .cta-secondary {
-    color: #ffffff;
-    border-color: #B8860B;
-  }
-  
-  .cta-secondary:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
-  .music-link {
-    background: rgba(184, 134, 11, 0.15);
-    border: 1px solid rgba(184, 134, 11, 0.3);
-    color: #B8860B;
-  }
-  
-  .music-link:hover {
-    background: rgba(184, 134, 11, 0.25);
-  }
-  
-  .service-item {
-    background: rgba(184, 134, 11, 0.15);
-    border: 1px solid rgba(184, 134, 11, 0.3);
-    color: rgba(0, 0, 0, 0.9);
-  }
-  
-  .show-item {
-    background: rgba(155, 89, 182, 0.15);
-    border: 1px solid rgba(155, 89, 182, 0.3);
-  }
-  
-  .booking-info {
-    background: rgba(155, 89, 182, 0.15);
-    border: 1px solid rgba(155, 89, 182, 0.3);
-  }
-  
-  .video-duration,
-  .video-venue {
-    color: rgba(0, 0, 0, 0.7);
-  }
-  
-  .show-details p {
-    color: rgba(0, 0, 0, 0.8);
-  }
-  
-  .booking-info p,
-  .booking-info li {
-    color: rgba(0, 0, 0, 0.8);
+    background: #0b0b0b;
+    color: #e6e6e6;
   }
 }
 
 /* ==================== ANIMATIONS & EFFECTS ==================== */
-
-/* Scroll animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.section-preview,
-.track-card,
-.video-card,
-.photo-card {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-/* Stagger animation delays */
-.section-preview:nth-child(1) { animation-delay: 0.1s; }
-.section-preview:nth-child(2) { animation-delay: 0.2s; }
-.section-preview:nth-child(3) { animation-delay: 0.3s; }
-
-.track-card:nth-child(1) { animation-delay: 0.1s; }
-.track-card:nth-child(2) { animation-delay: 0.2s; }
-.track-card:nth-child(3) { animation-delay: 0.3s; }
-
-/* Pulse effect for active elements */
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(218, 165, 32, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(218, 165, 32, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(218, 165, 32, 0); }
-}
-
-.cta-primary:hover {
-  animation: pulse 2s infinite;
-}
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -1393,16 +1243,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #650101;
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #650101;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 /* Focus states for accessibility */
@@ -1411,7 +1261,7 @@
 .music-link:focus,
 .view-full:focus,
 .booking-cta:focus {
-  outline: 2px solid #DAA520;
+  outline: 2px solid rgba(255, 255, 255, 0.6);
   outline-offset: 2px;
 }
 
@@ -1420,13 +1270,13 @@
   .floating-nav {
     display: none;
   }
-  
+
   .page-container {
     background: white;
     color: black;
     padding: 1rem;
   }
-  
+
   .video-container,
   .soundcloud-embed {
     display: none;
