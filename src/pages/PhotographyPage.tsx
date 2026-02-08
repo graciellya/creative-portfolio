@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import PixelBlast from "../components/PixelBlast";
 import "./Pages.css";
 
