@@ -1,5 +1,5 @@
 import PixelBlast from "../components/PixelBlast";
-import './Pages.css'
+import "./Pages.css";
 
 const AboutPage = () => {
   return (
@@ -22,7 +22,6 @@ const AboutPage = () => {
         <h1>About Us</h1>
         <div className="about-content">
           <div className="about-text">
-            
             <div className="stats-grid">
               <div className="stat-item">
                 <div className="stat-number">5+</div>
@@ -45,9 +44,8 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
-      </div>
     </div>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

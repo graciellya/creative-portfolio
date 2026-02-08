@@ -1,28 +1,30 @@
-import { useState } from 'react'
+import { useState } from "react";
 import PixelBlast from "../components/PixelBlast";
-import './Pages.css'
+import "./Pages.css";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message! We\'ll get back to you soon.')
-    setFormData({ name: '', email: '', message: '' })
-  }
+    console.log("Form submitted:", formData);
+    alert("Thank you for your message! We'll get back to you soon.");
+    setFormData({ name: "", email: "", message: "" });
+  };
 
   return (
     <div className="page-container">
@@ -95,9 +97,8 @@ const ContactPage = () => {
           </form>
         </div>
       </div>
-      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;

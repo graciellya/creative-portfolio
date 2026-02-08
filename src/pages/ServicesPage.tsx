@@ -1,29 +1,32 @@
 import PixelBlast from "../components/PixelBlast";
-import './Pages.css'
+import "./Pages.css";
 
 const ServicesPage = () => {
   const services = [
     {
-      icon: '💻',
-      title: 'Web Development',
-      description: 'Custom websites and web applications built with modern technologies.'
+      icon: "💻",
+      title: "Web Development",
+      description:
+        "Custom websites and web applications built with modern technologies.",
     },
     {
-      icon: '📱',
-      title: 'Mobile Apps',
-      description: 'Native and cross-platform mobile applications for iOS and Android.'
+      icon: "📱",
+      title: "Mobile Apps",
+      description:
+        "Native and cross-platform mobile applications for iOS and Android.",
     },
     {
-      icon: '🎨',
-      title: 'UI/UX Design',
-      description: 'Beautiful and intuitive user interfaces that enhance user experience.'
+      icon: "🎨",
+      title: "UI/UX Design",
+      description:
+        "Beautiful and intuitive user interfaces that enhance user experience.",
     },
     {
-      icon: '☁️',
-      title: 'Cloud Solutions',
-      description: 'Scalable cloud infrastructure and deployment solutions.'
-    }
-  ]
+      icon: "☁️",
+      title: "Cloud Solutions",
+      description: "Scalable cloud infrastructure and deployment solutions.",
+    },
+  ];
 
   return (
     <div className="page-container">
@@ -44,7 +47,8 @@ const ServicesPage = () => {
       <div style={{ position: "relative", zIndex: 1 }} className="page-content">
         <h1>Our Services</h1>
         <p className="services-intro">
-          We offer a comprehensive range of digital services to help your business grow.
+          We offer a comprehensive range of digital services to help your
+          business grow.
         </p>
         <div className="services-grid">
           {services.map((service, index) => (
@@ -56,8 +60,9 @@ const ServicesPage = () => {
             </div>
           ))}
         </div>
-      </div>      </div>    </div>
-  )
-}
+      </div>
+    </div>
+  );
+};
 
-export default ServicesPage
+export default ServicesPage;
