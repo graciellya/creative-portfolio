@@ -1,7 +1,10 @@
+import { useState, useEffect } from "react";
 import PixelBlast from "../components/PixelBlast";
 import "./Pages.css";
 
 const PhotographyPage = () => {
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+
   const photoGalleries = [
     {
       title: "",
@@ -248,12 +251,19 @@ const PhotographyPage = () => {
             {/* Add photo-grid class back as a wrapper */}
             <div className="masonry-grid">
               {gallery.photos.map((photo, photoIndex) => (
-                <div key={photoIndex} className="masonry-item">
+                <div
+                  key={photoIndex}
+                  className={`masonry-item ${loadedImages.has(photoIndex) ? "loaded" : ""}`}
+                  style={{ animationDelay: `${photoIndex * 0.08}s` }}
+                >
                   <img
                     src={photo.src}
                     alt={photo.alt}
                     className="photo-image"
                     loading="lazy"
+                    onLoad={() =>
+                      setLoadedImages((prev) => new Set(prev).add(photoIndex))
+                    }
                   />
                   <div className="masonry-overlay">
                     <h4>{photo.title}</h4>

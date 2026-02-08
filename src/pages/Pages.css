@@ -60,9 +60,14 @@
 .hero-section.hero-editorial {
   grid-template-columns: auto 1fr;
   justify-content: center;
+  align-items: center;
+  justify-items: center;
   gap: 4rem;
   max-width: 900px;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
 }
 
 .hero-wrap {
@@ -716,6 +721,21 @@
   overflow: hidden;
   background: transparent;
   border-radius: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.masonry-item.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .masonry-item img {
